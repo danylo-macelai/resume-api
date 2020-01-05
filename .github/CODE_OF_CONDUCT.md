@@ -1,6 +1,6 @@
+<div align="justify">
 <h2>Código de Conduta para Colaboradores</h2>
 
-<div align="justify">
 <h3>Nosso Compromisso</h3>
 <p>Como colaboradores e mantenedores deste projeto, e com o intuito de promover uma comunidade aberta e acolhedora, comprometemo-nos a respeitar todas as pessoas que contribuem, seja relatando problemas, publicando sugestões, atualizando a documentação, enviando solicitações de pull ou patches, entre outras atividades.</p>
 <p>Estamos dedicados a garantir que a participação neste projeto seja uma experiência livre de assédio para todos, independentemente de nível de experiência, gênero, identidade e expressão de gênero, orientação sexual, deficiência, aparência pessoal, tamanho corporal, raça, etnia, idade, religião ou nacionalidade.</p>
