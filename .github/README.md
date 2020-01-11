@@ -62,8 +62,7 @@
 <p>Explore os documentos essenciais do projeto através dos badges abaixo. Estes documentos são fundamentais para a colaboração eficaz.</p>
 
 <div align="center">
-  <p><a href="./CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Código%20de%20Conduta-🤍-007bff" alt="Código de Conduta"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./SECURITY.md"><img src="https://img.shields.io/badge/Segurança-🛡️-dc3545" alt="Segurança"></a></p>
-
+  <p><a href="./CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Código%20de%20Conduta-🤍-007bff" alt="Código de Conduta"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../LICENSE"><img src="https://img.shields.io/badge/Licença-⚖️-fd7e14" alt="Licença"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./SECURITY.md"><img src="https://img.shields.io/badge/Segurança-🛡️-dc3545" alt="Segurança"></a></p>
 </div>
 
 
@@ -75,3 +74,4 @@
 [![GitHub - Add a code of conduct](https://img.shields.io/badge/Add%20a%20Code%20Of%20Conduct-GitHub-F5B6C6)](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)
 [![Contributor Covenant v2.1.0](https://img.shields.io/badge/Contributor%20Covenant-v2.1.0-F5C6D6)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
 [![GitHub - Add a security policy](https://img.shields.io/badge/Add%20a%20Security%20Policy-GitHub-F5D6E6)](https://docs.github.com/en/code-security/getting-started/adding-a-security-policy-to-your-repository)
+[![Github - Add a license to a repo](https://img.shields.io/badge/Add%20a%20License%20to%20a%20Repo-GitHub-F5E6F6)](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)
