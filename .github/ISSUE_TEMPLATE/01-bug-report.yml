@@ -1,0 +1,46 @@
+name: "\U0001F41B Correção de Funcionalidade"
+description: "Encontrou um erro ou problema? Ajude-nos a melhorar relatando o bug aqui. Sua contribuição é essencial para tornar o sistema mais robusto!"
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por relatar este bug! Por favor, preencha as informações abaixo para que possamos entender e corrigir o problema de forma eficiente.
+  - type: input
+    id: contato
+    attributes:
+      label: Detalhes de Contato
+      description: "Como podemos entrar em contato com você se precisarmos de mais informações? Seus dados serão usados apenas para resolver o problema."
+      placeholder: ex. email@example.com
+    validations:
+      required: true
+  - type: textarea
+    id: aconteceu
+    attributes:
+      label: O que aconteceu?
+      description: "Descreva o que você esperava que acontecesse e o que realmente aconteceu. Isso nos ajudará a entender o problema."
+      placeholder: "Conte-nos sobre o erro encontrado."
+      value: "Ocorreu um erro..."
+    validations:
+      required: true
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para reproduzir o problema
+      description: "Quais passos você seguiu até o problema acontecer? Detalhe o máximo possível para que possamos reproduzir e entender o erro."
+      placeholder: "Liste os passos para reproduzir o erro."
+      value: |
+        1. Acesse a página...
+        2. Clique no botão...
+        3. Role até...
+        4. O erro será exibido.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Saída de log relevante
+      description: "Se possível, copie e cole qualquer saída de log relevante aqui. Isso nos ajudará a identificar e corrigir o problema mais rapidamente."
+      placeholder: "Adicione logs ou mensagens de erro relevantes."
+      render: shell

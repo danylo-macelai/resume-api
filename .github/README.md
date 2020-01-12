@@ -75,3 +75,5 @@
 [![Contributor Covenant v2.1.0](https://img.shields.io/badge/Contributor%20Covenant-v2.1.0-F5C6D6)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
 [![GitHub - Add a security policy](https://img.shields.io/badge/Add%20a%20Security%20Policy-GitHub-F5D6E6)](https://docs.github.com/en/code-security/getting-started/adding-a-security-policy-to-your-repository)
 [![Github - Add a license to a repo](https://img.shields.io/badge/Add%20a%20License%20to%20a%20Repo-GitHub-F5E6F6)](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)
+[![Github - About templates](https://img.shields.io/badge/About%20Templates-GitHub-F5B6A6)](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)
+[![Github - Create an issue template](https://img.shields.io/badge/Create%20an%20Issue%20Template-GitHub-F5C6A6)](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository)
