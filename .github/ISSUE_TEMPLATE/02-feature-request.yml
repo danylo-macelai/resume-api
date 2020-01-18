@@ -1,0 +1,49 @@
+name: "\U0001F680 Evolução de Funcionalidade"
+description: "Tem uma ideia para uma nova funcionalidade ou uma grande melhoria? Compartilhe com a gente! Estamos ansiosos para ouvir suas sugestões e tornar o projeto ainda melhor."
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por propor uma nova funcionalidade! Preencha as informações abaixo para ajudar a entender e avaliar sua sugestão.
+  - type: input
+    id: contato
+    attributes:
+      label: Contato
+      description: "Como podemos entrar em contato com você se precisarmos de mais detalhes? Seu contato nos ajudará a esclarecer dúvidas."
+      placeholder: ex. email@example.com
+    validations:
+      required: true
+  - type: textarea
+    id: motivacao
+    attributes:
+      label: Motivação
+      description: "Por que você acredita que essa nova funcionalidade é importante para o projeto? Sua visão nos ajudará a entender a necessidade."
+      placeholder: "Explique a motivação por trás da sugestão."
+      value: "Descreva a motivação aqui."
+    validations:
+      required: true
+  - type: textarea
+    id: solucao
+    attributes:
+      label: Solução Proposta
+      description: "O que você está sugerindo e como isso beneficiará o projeto? Detalhe a funcionalidade proposta para que possamos entender sua visão."
+      placeholder: "Descreva a funcionalidade proposta em detalhes."
+      value: "Descrição da funcionalidade aqui."
+    validations:
+      required: true
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: Alternativas
+      description: "Você considerou outras formas de implementar essa funcionalidade? Liste e explique alternativas, se houver."
+      placeholder: "Liste e explique alternativas, se houver."
+      value: "Alternativas consideradas."
+  - type: textarea
+    id: impacto
+    attributes:
+      label: Impacto Esperado
+      description: "Como essa funcionalidade impactará o projeto? Sua visão sobre o impacto esperado é importante para avaliarmos a proposta."
+      placeholder: "Descreva o impacto esperado da nova funcionalidade."
+      value: "Impacto esperado."

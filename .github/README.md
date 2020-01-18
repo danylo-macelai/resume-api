@@ -65,7 +65,6 @@
   <p><a href="./CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Código%20de%20Conduta-🤍-007bff" alt="Código de Conduta"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../LICENSE"><img src="https://img.shields.io/badge/Licença-⚖️-fd7e14" alt="Licença"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./SECURITY.md"><img src="https://img.shields.io/badge/Segurança-🛡️-dc3545" alt="Segurança"></a></p>
 </div>
 
-
 </div>
 
 <h3>6. LINKS ÚTEIS/ FERRAMENTAS/ PLUGINS/ FRAMEWORKS</h3>
