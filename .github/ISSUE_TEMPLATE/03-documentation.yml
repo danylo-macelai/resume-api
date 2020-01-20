@@ -1,0 +1,42 @@
+name: "📝 Melhorias na Documentação"
+description: "Viu algo que pode ser melhorado? Contribua sugerindo correções ou aprimoramentos para deixar a documentação mais clara e útil!"
+title: "[Documentação]: "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por sugerir melhorias na documentação! Preencha as informações abaixo para nos ajudar a entender e implementar as mudanças.
+  - type: input
+    id: contato
+    attributes:
+      label: Contato
+      description: Como podemos entrar em contato com você se precisarmos de mais detalhes?
+      placeholder: ex. email@example.com
+    validations:
+      required: true
+  - type: textarea
+    id: secao
+    attributes:
+      label: Seção da Documentação
+      description: Qual parte da documentação precisa de melhoria?
+      placeholder: Informe a seção específica da documentação.
+      value: "Seção da documentação."
+    validations:
+      required: true
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição da Mudança
+      description: O que precisa ser alterado ou adicionado?
+      placeholder: Descreva as mudanças necessárias.
+      value: "Descrição da mudança aqui."
+    validations:
+      required: true
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Contexto Adicional
+      description: Adicione links, capturas de tela ou outros detalhes relevantes.
+      placeholder: Adicione qualquer contexto adicional.
+      value: "Contexto adicional."
