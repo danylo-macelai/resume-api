@@ -1,0 +1,25 @@
+name: "\u2753  Pergunta"
+description: "Tem dúvidas ou precisa de mais informações sobre o projeto? Pergunte aqui! Estamos prontos para ajudar com qualquer esclarecimento que você precisar."
+title: "[Question]: "
+labels: ['question']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Olá! Agradecemos por sua pergunta. Para que possamos fornecer a melhor resposta, preencha as informações abaixo.
+  - type: textarea
+    id: resumo
+    attributes:
+      label: Resumo da Pergunta
+      description: "Explique de forma clara e direta qual é a sua dúvida ou questão. Isso nos ajudará a entender melhor o que você precisa."
+      placeholder: "Resuma sua pergunta aqui."
+    validations:
+      required: true
+  - type: textarea
+    id: detalhes_adicionais
+    attributes:
+      label: Detalhes Adicionais
+      description: "Inclua qualquer informação extra que possa ajudar a esclarecer sua pergunta. Quanto mais contexto, melhor poderemos ajudar."
+      placeholder: "Adicione detalhes adicionais aqui, se houver."
+    validations:
+      required: false
