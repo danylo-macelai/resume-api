@@ -71,6 +71,9 @@
 [![Github - Create an issue template](https://img.shields.io/badge/Create%20an%20Issue%20Template-GitHub-F5C6A6)](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository)
 [![Github - Create a PR template](https://img.shields.io/badge/Create%20a%20PR%20Template-GitHub-F5D6A6)](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository)
 [![tinypng](https://img.shields.io/badge/tinypng-F6D6A6)](https://tinypng.com/)
+[![Eclipse IDE](https://img.shields.io/badge/Eclipse%20IDE-2020--06%20R-F6E6A6)](https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2020-06/R/eclipse-jee-2020-06-R-win32-x86_64.zip)
+[![Java SE Development Kit](https://img.shields.io/badge/Java%20SE%20Development%20Kit-v17.0.12-F6F6A6)](https://download.oracle.com/java/17/archive/jdk-17.0.12_windows-x64_bin.exe)
+[![Spring Initializr](https://img.shields.io/badge/Spring%20Initializr-E6F6A6)](https://start.spring.io/) 
 
-    </div>
+</div>
 </div>

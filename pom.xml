@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                        https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.7</version>
+        <relativePath />
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.com.resume</groupId>
+    <artifactId>resume-api</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
+    <name>Resume API</name>
+    <description>A Resume API simplifica o gerenciamento de informações
+        profissionais e pessoais de forma programática. Com arquitetura RESTful,
+        permite que desenvolvedores integrem funcionalidades facilmente,
+        oferecendo operações para Achievements, Education, Experience, Hobbies,
+        Profile, Skills e User.</description>
+
+    <url>https://github.com/danylo-macelai/resume-api</url>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/danylo-macelai/resume-api?tab=MIT-1-ov-file</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>contribuidores</name>
+            <url>https://github.com/danylo-macelai/resume-api/graphs/contributors</url>
+        </developer>
+    </developers>
+    <scm>
+        <connection />
+        <developerConnection />
+        <tag />
+        <url>https://github.com/danylo-macelai/resume-api</url>
+    </scm>
+
+    <properties>
+        <main.basedir>${basedir}</main.basedir>
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
