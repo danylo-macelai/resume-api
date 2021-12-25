@@ -79,6 +79,7 @@
 [![Maven - Setting the -source and -target of the Java Compiler](https://img.shields.io/badge/Setting%20the%20--source%20and%20--target%20of%20the%20Java%20Compiler-Maven-B6F6A6)](https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html#setting-the-source-and-target-of-the-java-compiler)
 [![Maven - Compile Using Memory Allocation Enhancements](https://img.shields.io/badge/Compile%20Using%20Memory%20Allocation%20Enhancements-Maven-A6F6A6)](https://maven.apache.org/plugins/maven-compiler-plugin/examples/compile-with-memory-enhancements.html#compile-using-memory-allocation-enhancements)
 [![Maven - Pass Compiler Arguments](https://img.shields.io/badge/Pass%20Compiler%20Arguments-Maven-A6F6B6)](https://maven.apache.org/plugins/m[aven-compiler-plugin/examples/pass-compiler-arguments.html#pass-compiler-arguments)
+[![Maven - Dependency Plugin](https://img.shields.io/badge/Dependency%20Plugin-Maven-A6F6B6)](https://maven.apache.org/plugins/maven-dependency-plugin/usage.html)
 
 </div>
 </div>
