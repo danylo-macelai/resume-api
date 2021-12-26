@@ -80,6 +80,12 @@
 [![Maven - Compile Using Memory Allocation Enhancements](https://img.shields.io/badge/Compile%20Using%20Memory%20Allocation%20Enhancements-Maven-A6F6A6)](https://maven.apache.org/plugins/maven-compiler-plugin/examples/compile-with-memory-enhancements.html#compile-using-memory-allocation-enhancements)
 [![Maven - Pass Compiler Arguments](https://img.shields.io/badge/Pass%20Compiler%20Arguments-Maven-A6F6B6)](https://maven.apache.org/plugins/m[aven-compiler-plugin/examples/pass-compiler-arguments.html#pass-compiler-arguments)
 [![Maven - Dependency Plugin](https://img.shields.io/badge/Dependency%20Plugin-Maven-A6F6B6)](https://maven.apache.org/plugins/maven-dependency-plugin/usage.html)
+[![Maven - Resources Plugin](https://img.shields.io/badge/Maven%20Resources%20Plugin-Maven-A6F6C6)](https://maven.apache.org/plugins/maven-resources-plugin/index.html)
+[![Maven - Resources Plugin-Specifying resource directories](https://img.shields.io/badge/Maven%20Resources%20Plugin--Specifying%20resource%20directories-Maven-A6F6D6)](https://maven.apache.org/plugins/maven-resources-plugin/examples/resource-directory.html#specifying-resource-directories)
+[![Maven - Resources Plugin-Filtering](https://img.shields.io/badge/Maven%20Resources%20Plugin--Filtering-Maven-A6F6E6)](https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html#filtering)
+[![Maven - Resources Plugin-Filtering Properties Files](https://img.shields.io/badge/Maven%20Resources%20Plugin--Filtering%20Properties%20Files-Maven-A6F6F6)](https://maven.apache.org/plugins/maven-resources-plugin/examples/filtering-properties-files.html#filtering-properties-files)
+[![Maven - Resources Plugin-delimiters](https://img.shields.io/badge/Maven%20Resources%20Plugin--delimiters-Maven-A6E6F6)](https://maven.apache.org/plugins/maven-resources-plugin/resources-mojo.html#delimiters)
+[![Maven - Resources Plugin-usedefaultdelimiters](https://img.shields.io/badge/Maven%20Resources%20Plugin--usedefaultdelimiters-Maven-A6D6F6)](https://maven.apache.org/plugins/maven-resources-plugin/resources-mojo.html#usedefaultdelimiters)
 
 </div>
 </div>
