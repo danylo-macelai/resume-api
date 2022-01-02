@@ -86,6 +86,8 @@
 [![Maven - Resources Plugin-Filtering Properties Files](https://img.shields.io/badge/Maven%20Resources%20Plugin--Filtering%20Properties%20Files-Maven-A6F6F6)](https://maven.apache.org/plugins/maven-resources-plugin/examples/filtering-properties-files.html#filtering-properties-files)
 [![Maven - Resources Plugin-delimiters](https://img.shields.io/badge/Maven%20Resources%20Plugin--delimiters-Maven-A6E6F6)](https://maven.apache.org/plugins/maven-resources-plugin/resources-mojo.html#delimiters)
 [![Maven - Resources Plugin-usedefaultdelimiters](https://img.shields.io/badge/Maven%20Resources%20Plugin--usedefaultdelimiters-Maven-A6D6F6)](https://maven.apache.org/plugins/maven-resources-plugin/resources-mojo.html#usedefaultdelimiters)
+[![Maven - Surefire Plugin](https://img.shields.io/badge/Surefire%20Plugin-Maven-A6C6F6)](https://maven.apache.org/surefire/maven-surefire-plugin/#maven-surefire-plugin)
+[![Maven - Failsafe Plugin](https://img.shields.io/badge/Failsafe%20Plugin-Maven-A6B6F6)](https://maven.apache.org/surefire/maven-failsafe-plugin/#maven-failsafe-plugin)
 
 </div>
 </div>

@@ -35,7 +35,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @version $
  */
 @SpringBootTest
-class ResumeApplicationTests {
+class ResumeApplicationUnitTests {
 
     @Test
     void contextLoads() {
