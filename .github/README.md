@@ -88,6 +88,8 @@
 [![Maven - Resources Plugin-usedefaultdelimiters](https://img.shields.io/badge/Maven%20Resources%20Plugin--usedefaultdelimiters-Maven-A6D6F6)](https://maven.apache.org/plugins/maven-resources-plugin/resources-mojo.html#usedefaultdelimiters)
 [![Maven - Surefire Plugin](https://img.shields.io/badge/Surefire%20Plugin-Maven-A6C6F6)](https://maven.apache.org/surefire/maven-surefire-plugin/#maven-surefire-plugin)
 [![Maven - Failsafe Plugin](https://img.shields.io/badge/Failsafe%20Plugin-Maven-A6B6F6)](https://maven.apache.org/surefire/maven-failsafe-plugin/#maven-failsafe-plugin)
+[![ASCII Art Generator](https://img.shields.io/badge/ASCII%20Art%20Generator-club-B5E6F5)](https://asciiart.club/)
+[![Spring - Customizing the Banner](https://img.shields.io/badge/Customizing%20the%20Banner-Spring-A5F6F5)](https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application.banner)
 
 </div>
 </div>
