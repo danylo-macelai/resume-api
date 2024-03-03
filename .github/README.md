@@ -90,6 +90,10 @@
 [![Maven - Failsafe Plugin](https://img.shields.io/badge/Failsafe%20Plugin-Maven-A6B6F6)](https://maven.apache.org/surefire/maven-failsafe-plugin/#maven-failsafe-plugin)
 [![ASCII Art Generator](https://img.shields.io/badge/ASCII%20Art%20Generator-club-B5E6F5)](https://asciiart.club/)
 [![Spring - Customizing the Banner](https://img.shields.io/badge/Customizing%20the%20Banner-Spring-A5F6F5)](https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application.banner)
+[![Project Lombok Download](https://img.shields.io/badge/Project%20Lombok-Download-A6A6F6)](https://projectlombok.org/download)
+[![Project Lombok Setup Eclipse](https://img.shields.io/badge/Project%20Lombok--Setup-Eclipse-E5B6F5)](https://projectlombok.org/setup/eclipse)
+[![Project Lombok Setup Maven](https://img.shields.io/badge/Project%20Lombok--Setup-Maven-D5C6F5)](https://projectlombok.org/setup/maven)
+[![Project Lombok Features](https://img.shields.io/badge/Project%20Lombok-Features-C5D6F5)](https://projectlombok.org/features/)
 
 </div>
 </div>
