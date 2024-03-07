@@ -1,0 +1,52 @@
+name: CHECK - Título de Pull Request
+
+# O workflow será acionado sempre que um Pull Request for criado ou atualizado com destino à branch 'main'.
+on: 
+  pull_request:
+    branches:
+      - main   # Especifica que o workflow será acionado apenas para Pull Requests na branch 'main'.
+    types:
+      - opened                         # Quando um novo PR é aberto
+      - synchronize                    # Quando novos commits são enviados para um PR existente
+      - reopened                       # Quando um PR fechado é reaberto
+      - unlocked                       # Quando um PR bloqueado é desbloqueado
+      - edited                         # Quando a descrição ou título de um PR é editado
+
+# Configura as permissões de acesso para este workflow
+permissions:
+  pull-requests: read         # Concede permissão de leitura para acessar dados de Pull Requests, como o título e a descrição
+
+# Define o job que será executado como parte deste workflow
+jobs:
+  # Este job é responsável por validar se o título do Pull Request segue o padrão semântico.
+  # A validação ajuda a garantir que os PRs mantenham consistência nos nomes.
+  check-titulo-pull-request:
+    name: Validação do título do PR    # Nome do job, exibido no painel de execução do GitHub Actions
+    runs-on: ubuntu-latest             # O ambiente onde o job será executado (Ubuntu mais recente)
+    timeout-minutes: 10                # Tempo máximo de execução do job é de 10 minutos.
+
+    steps:
+      - name: Validar título semântico do PR
+        uses: amannn/action-semantic-pull-request@v5   # Ação que valida o título semântico de PRs
+        with:
+          # Valida também Pull Requests que possuem apenas um commit.
+          # Isso é importante para garantir que PRs pequenos com um único commit também
+          # sigam a convenção de commits semânticos no título.
+          validateSingleCommit: true   # Ativa a validação para PRs com um único commit
+
+          # Padrão de expressão regular (regex) usado para validar o título do PR.
+          # O assunto não deve começar com letras maiúsculas.
+          # Exemplo de título válido: "feat: implementação do novo recurso".
+          subjectPattern: ^(?![A-Z]).+$    # Padrão regex para validar o título do PR
+
+          # Mensagem de erro personalizada que será exibida ao autor do PR se o título não seguir o padrão especificado.
+          # A mensagem explica qual é o erro e fornece orientações sobre como corrigir.
+          subjectPatternError: |
+            O assunto "{subject}" encontrado no título do pull request "{title}"
+            não corresponde ao padrão configurado. Por favor, certifique-se de que o assunto
+            não comece com uma letra maiúscula.
+        
+        # Variáveis de ambiente necessárias para o job. O GitHub gera automaticamente o GITHUB_TOKEN,
+        # que é utilizado para autenticar e fazer chamadas à API do GitHub.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # Token de autenticação fornecido pelo GitHub para permitir acesso ao PR e suas informações

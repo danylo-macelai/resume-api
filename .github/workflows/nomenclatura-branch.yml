@@ -1,0 +1,70 @@
+name: CHECK - Nomenclatura de Branch
+
+# O workflow será acionado sempre que um Pull Request for criado ou atualizado com destino à branch 'main'.
+on: 
+  pull_request:
+    branches:
+      - main   # Especifica que o workflow será acionado apenas para Pull Requests na branch 'main'.
+    types:
+      - opened                         # Quando um novo PR é aberto
+      - synchronize                    # Quando novos commits são enviados para um PR existente
+      - reopened                       # Quando um PR fechado é reaberto
+      - unlocked                       # Quando um PR bloqueado é desbloqueado
+      - edited                         # Quando a descrição ou título de um PR é editado
+
+jobs:
+  # Job responsável por verificar se o nome da branch do PR segue os padrões estabelecidos no guia de contribuição.
+  check-nomenclatura-branch:
+    runs-on: ubuntu-latest             # O job será executado em uma VM com o sistema Ubuntu mais recente.
+    timeout-minutes: 10                # Tempo máximo de execução do job é de 10 minutos.
+
+    steps:
+      - name: Verificar nome e branch de destino no PR  # Valida o nome e a branch de destino do PR.
+        run: |
+          # Captura o nome da branch do PR e a branch de destino
+          branch_name=${GITHUB_HEAD_REF}
+          target_branch=${GITHUB_BASE_REF}
+          
+          # Expressão regular que define o padrão de nomenclatura esperado: 'fix/' ou 'feature/', seguido por letras minúsculas e hífens.
+          dev_regex="^(fix|feature)\/[a-z]+(-[a-z]+)*$"  
+          
+          echo "=============================="
+          echo "**Iniciando verificação da nomenclatura...**"
+          echo ""
+          echo "O nome da branch deve começar com o prefixo feature/ ou fix/, dependendo se o objetivo é adicionar uma nova funcionalidade ou corrigir um bug. Além disso, é obrigatório que o restante do nome seja composto apenas por letras minúsculas, utilizando hífens (-) para separar palavras, evitando espaços ou caracteres especiais."
+          echo ""
+          echo "💡 Dica:"
+          echo "Aqui estão alguns exemplos de nomes de branch válidos:"
+          echo " - 'feature/adicionar-perfil-usuario'"
+          echo " - 'fix/corrigir-erro-login'"
+          echo ""
+          echo "Para mais informações, acesse o guia de contribuição na sessão de clonagem: ../CONTRIBUTING.md#-clonagem."
+          echo ""
+
+          # Verifica se o nome da branch está em conformidade com a expressão regular
+          if [[ "$branch_name" =~ $dev_regex ]]; then
+            echo "✅ O nome da branch '$branch_name' está correto."
+
+            # Verifica se a branch de destino é 'main'
+            if [[ "$target_branch" != "main" ]]; then
+              echo "❌ A branch de destino '$target_branch' está incorreta."
+              echo ""
+              echo "⚠️ Atenção:"
+              echo "Ajuste a branch de destino para 'main' antes de continuar"
+              echo ""
+              exit 1  # Finaliza com erro, bloqueando a mesclagem
+            else
+              echo "✅ A branch de destino '$target_branch' está correta."
+            fi
+          else
+            echo "❌ O nome da branch '$branch_name' está incorreto."
+            echo ""
+            echo "⚠️ Atenção:"
+            echo "Renomeie a branch para seguir o formato esperado."
+            echo ""
+            exit 1  # Finaliza com erro, bloqueando a mesclagem
+          fi
+          
+          echo "----------------------------------------------"
+          echo "**Verificação concluída com sucesso.**"
+        shell: bash  # Define o shell bash para execução dos comandos.

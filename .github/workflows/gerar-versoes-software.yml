@@ -1,0 +1,58 @@
+name: RELEASE - Gerar Versões do Software
+
+# Define os eventos que acionam o workflow, neste caso o workflow será acionado quando houver
+# um push para a branch 'main'. Isso significa que, sempre que uma alteração for feita e 
+# confirmada na branch principal (main), o processo de geração de versão será iniciado.
+on:
+  push:                               # Evento de push que aciona o workflow
+    branches:                         # Define as branches monitoradas para o evento de push
+      - main                          # O workflow será acionado apenas quando houver push na branch 'main'
+
+jobs:
+  # Este job é responsável por automatizar o processo de gerar versões do software.
+  # Ele é ativado sempre que ocorre um push na branch principal, permitindo que o processo de liberação
+  # de versões seja contínuo, ágil e confiável.
+  release-gerar-versoes-software:
+    runs-on: ubuntu-latest            # O job será executado em uma máquina virtual com o sistema Ubuntu mais recente
+    timeout-minutes: 10               # Tempo máximo de execução do job é de 10 minutos para evitar travamentos ou atrasos
+
+    steps:                            # Etapas que o job seguirá
+      # Etapa 1: Checkout do código-fonte do repositório
+      # Essa etapa garante que o job tenha acesso ao estado mais atualizado do código no repositório.
+      # O checkout é essencial para que o semantic-release possa analisar os commits mais recentes
+      # e determinar a nova versão com base no histórico de commits.
+      - name: Checkout                # Nome da etapa que faz o checkout do código
+        uses: actions/checkout@v4     # Ação oficial do GitHub para fazer o checkout do repositório
+
+      # Etapa 2: Configuração do ambiente Node.js
+      # Muitas ferramentas utilizadas para automatizar o processo de release, como o semantic-release, são baseadas em Node.js.
+      # Portanto, essa etapa configura o ambiente necessário instalando a versão do Node.js especificada.
+      - name: Setup Node.js           # Nome da etapa que configura o ambiente Node.js
+        uses: actions/setup-node@v4   # Ação oficial do GitHub para configurar o Node.js
+        with:
+          node-version: 20            # Versão específica do Node.js a ser instalada e utilizada no processo
+
+      # Etapa 3: Executar o processo de liberação (release) no GitHub
+      # Nessa etapa, o semantic-release é utilizado para automatizar todo o processo de geração de versão.
+      # Ele analisa os commits recentes para determinar a nova versão de acordo com o versionamento semântico (SemVer),
+      # gera automaticamente notas de release e atualiza o changelog. Se for uma nova versão válida, o processo inclui
+      # a liberação oficial no GitHub, com o changelog sendo commitado e as notas da release publicadas.
+      - name: Release to GitHub       # Nome da etapa para liberar a versão no GitHub
+        uses: cycjimmy/semantic-release-action@v4.1.1 # Ação que usa o semantic-release para automatizar o processo de liberação
+        with:
+          semantic_version: 24.1.2    # Versão do semantic-release utilizada para o processo de geração de versão
+          branches: |                 # Define as branches que acionam o processo de release
+            [
+              'main'
+            ]
+          extra_plugins: |            # Plugins adicionais utilizados para gerar o changelog e realizar o commit das alterações
+            @semantic-release/commit-analyzer@13.0.0
+            @semantic-release/release-notes-generator@14.0.1
+            @semantic-release/changelog@6.0.3
+            @semantic-release/github@11.0.0
+            @semantic-release/git@10.0.1
+
+        # Variáveis de ambiente necessárias para autenticar e publicar as releases no GitHub.
+        # O token do GitHub é usado para autorizar o workflow a criar releases e fazer commits de volta no repositório.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    # Token de acesso ao GitHub necessário para autenticação e liberação de versão

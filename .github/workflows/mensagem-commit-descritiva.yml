@@ -1,0 +1,48 @@
+name: CHECK - Mensagem de Commit Descritiva
+
+# O workflow é acionado por dois eventos: push para a branch 'main' ou pull request para essa branch.
+# Isso garante que todas as alterações na branch principal ou propostas para ela sigam as regras de commits descritivos.
+on:
+  push:                               # Evento de push que aciona o workflow
+    branches:                         # Define as branches monitoradas para o evento de push
+      - main                          # O workflow será acionado apenas quando houver push na branch 'main'
+  pull_request:                       # Evento de pull request que também aciona o workflow
+    branches:                         # Define as branches monitoradas para o evento de pull request
+      - main                          # O workflow será acionado para pull requests destinados à branch 'main'
+
+jobs:
+  # Job para garantir que as mensagens de commit sigam o padrão descritivo especificado pelo Conventional Commits.
+  check-mensagem-commit-descritiva:
+    runs-on: ubuntu-latest            # O job será executado em uma máquina virtual com o sistema Ubuntu mais recente
+    timeout-minutes: 10               # Tempo máximo de execução do job é de 10 minutos para evitar travamentos ou atrasos
+
+    steps:                            # Etapas que o job seguirá
+      # Etapa 1: Checkout do código-fonte do repositório
+      # Garante que o código atualizado esteja disponível para as verificações.
+      - name: Fazer checkout do código
+        uses: actions/checkout@v4     # Ação oficial do GitHub para fazer o checkout do repositório
+        with:
+          fetch-depth: 0              # Garante que todo o histórico de commits seja obtido
+
+      # Etapa 2: Configuração do ambiente Node.js
+      # Necessário para rodar a ferramenta de linting de commits, que é baseada em Node.js.
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4   # Ação oficial do GitHub para configurar o Node.js
+        with:
+          node-version: 20            # Versão específica do Node.js
+
+      # Etapa 3: Instalação da ferramenta de linting de commits
+      # Instala a ferramenta commitlint, responsável por validar as mensagens de commit.
+      - name: Instalar Commitlint
+        run: npm install --save-dev @commitlint/{cli,config-conventional} # Comando para instalar o commitlint
+
+      # Etapa 4: Configuração do commitlint
+      # Configura o commitlint para seguir as regras do Conventional Commits.
+      - name: Configurar Commitlint
+        run: |                          # Cria o arquivo de configuração do commitlint
+          echo "module.exports = { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+
+      # Etapa 5: Executar linting das mensagens de commit
+      # Valida se a mensagem do commit mais recente segue o padrão do Conventional Commits.
+      - name: Validar mensagens de commit
+        run: npx commitlint --from HEAD~1 --to HEAD --verbose # Comando para verificar o último commit

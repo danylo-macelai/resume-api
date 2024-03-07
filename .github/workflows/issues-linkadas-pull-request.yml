@@ -1,0 +1,76 @@
+name: CHECK - Issues linkadas a Pull Request
+
+permissions:
+  issues: read  # Permissão para ler issues
+
+# O workflow será acionado sempre que um Pull Request for criado ou atualizado com destino à branch 'main'.
+on: 
+  pull_request:
+    branches:
+      - main   # O workflow será acionado apenas para Pull Requests na branch 'main'.
+    types:
+      - opened                         # Quando um novo PR é aberto
+      - synchronize                    # Quando novos commits são enviados para um PR existente
+      - reopened                       # Quando um PR fechado é reaberto
+      - unlocked                       # Quando um PR bloqueado é desbloqueado
+      - edited                         # Quando a descrição ou título de um PR é editado
+
+jobs:
+  # Job responsável por verificar se o Pull Request está vinculado a issues.
+  check-issues-linkadas-pull-request:
+    runs-on: ubuntu-latest             # O job será executado em uma VM com o sistema Ubuntu mais recente.
+    timeout-minutes: 10                # Tempo máximo de execução do job é de 10 minutos.
+
+    steps:
+      - name: Verificar se o Pull Request está vinculado a issues
+        run: |
+          # Captura a descrição do Pull Request
+          pr_description=$(jq -r .pull_request.body < $GITHUB_EVENT_PATH)
+
+          echo "=============================="
+          echo "**Iniciando verificação do vínculo...**"
+          echo ""
+          echo "Para garantir que o seu Pull Request esteja vinculado a uma issue, utilize a sintaxe 'Closes: #XXX'. Isso fechará automaticamente a issue quando o PR for aprovado e mesclado."
+          echo ""
+          echo "💡 Dica:"
+          echo "Aqui estão alguns exemplos válidos:"
+          echo " - 'Closes: #42'"
+          echo ""
+          echo "Para mais informações, acesse o guia de contribuição na seção de envio: ../CONTRIBUTING.md#-enviando"
+          echo ""
+
+          # Verifica se a descrição do PR contém a sintaxe de fechamento de issue
+          if [[ "$pr_description" =~ Closes:\ #[[:space:]]*([0-9]{1,10}) ]]; then
+            issue_number="${BASH_REMATCH[1]}"  # número da issue está encapsulada entre parênteses para que BASH_REMATCH consiga capturá-la.
+            echo "✅ Pull Request vinculado a uma issue '$issue_number'."
+
+            # Verifica se a issue realmente existe utilizando curl
+            echo "🔍 Verificando a existência da issue '$issue_number'..."
+            
+            response=$(curl -s -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/$issue_number")
+
+            # Verifica se a issue existe
+            if echo "$response" | grep -q '"number": '$issue_number; then
+              echo "✅ A issue '$issue_number' existe."
+            else
+              echo "❌ A issue '$issue_number' não existe."
+              echo ""
+              echo "⚠️ Atenção:"
+              echo "Edite a descrição do Pull Request e informe um número de issue válido antes de continuar."
+              echo ""
+              exit 1  # Finaliza com erro, bloqueando a mesclagem
+            fi
+          else
+            echo "❌ Pull Request não vinculado a nenhuma issue."
+            echo ""
+            echo "⚠️ Atenção:"
+            echo "Edite a descrição do Pull Request e informe o número da issue antes de continuar."
+            echo ""
+            exit 1  # Finaliza com erro, bloqueando a mesclagem
+          fi
+
+          echo "----------------------------------------------"
+          echo "**Verificação concluída com sucesso.**"
+        shell: bash  # Define o shell bash para execução dos comandos.

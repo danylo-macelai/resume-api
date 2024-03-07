@@ -1,0 +1,44 @@
+name: COMMENT - Agradecimento pela Contribuição
+
+# Define os eventos que irão acionar o workflow, neste caso, o workflow será acionado sempre que
+# um Pull Request (PR) for criado, reaberto, atualizado ou desbloqueado. Isso garante que, 
+# sempre que houver interação em um PR, o autor receberá uma mensagem de agradecimento.
+on:
+  pull_request_target:                 # O pull_request_target garante que o workflow tenha permissões mesmo em PRs vindos de forks.
+    types:
+      - opened                         # Acionado quando um novo PR é aberto
+      - synchronize                    # Acionado quando novos commits são enviados para um PR existente
+      - reopened                       # Acionado quando um PR fechado é reaberto
+      - unlocked                       # Acionado quando um PR bloqueado é desbloqueado
+
+# Definição de permissões para o workflow
+jobs:
+  # Este job é responsável por adicionar um comentário automático a qualquer Pull Request que atenda a um dos critérios definidos acima (aberto, reaberto, atualizado ou desbloqueado).
+  # A mensagem agradece o autor pela contribuição e explica o processo de revisão que ocorrerá em seguida.
+  comment-agradecimento-contribuicao:
+    runs-on: ubuntu-latest             # O job será executado em uma máquina virtual com o sistema Ubuntu mais recente.
+    timeout-minutes: 10                # Tempo máximo de execução do job é de 10 minutos.
+    permissions: write-all             # Permissões para escrita em todos os recursos do repositório. Isso é necessário para poder adicionar comentários no PR.
+
+    steps:
+      # Etapa que faz o checkout do repositório. Mesmo que este job não modifique arquivos diretamente,
+      # o checkout é necessário para garantir que o job possa acessar o contexto completo do PR e interagir com ele.
+      - name: Checkout                 # Nome da etapa que faz o checkout do código
+        uses: actions/checkout@v4      # Ação oficial do GitHub para fazer o checkout do repositório (pega o código-fonte e o contexto do PR)
+
+      # Etapa que adiciona um comentário automático ao PR utilizando uma ação externa.
+      # Aqui, a ação 'mshick/add-pr-comment@v2' é utilizada para inserir uma mensagem personalizada em todos os PRs abertos ou atualizados.
+      - name: Adicionar comentário ao PR
+        uses: mshick/add-pr-comment@v2 # Ação que adiciona um comentário automático a Pull Requests
+        with:
+          repo-token: ${{ secrets.REPO_TOKEN }}     # Token de autenticação gerado automaticamente para acessar e modificar o PR
+          message-id: contribuicao-recebida-id      # ID da mensagem para referência, útil para evitar duplicidade de comentários no PR
+          message: |                                # Texto da mensagem de agradecimento que será postada como comentário no PR
+            🎉 Obrigado por sua contribuição!
+
+            Estamos animados para revisar seu PR! Um dos mantenedores dará feedback em breve.
+
+            Enquanto isso, sinta-se à vontade para nos enviar qualquer dúvida. E lembre-se: a comunidade pode ajudar reagindo com um joinha 👍 para aprovação ou um foguete 🚀 para aqueles que testaram.
+
+            Sua participação é muito valiosa e inspira outros a contribuírem também! ❤️
+
