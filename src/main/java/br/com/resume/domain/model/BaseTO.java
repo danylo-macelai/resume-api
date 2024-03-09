@@ -23,6 +23,7 @@
  */
 package br.com.resume.domain.model;
 
+import static jakarta.persistence.GenerationType.AUTO;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 import java.io.Serializable;
@@ -31,6 +32,10 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,12 +50,16 @@ import lombok.Setter;
  * @version $
  */
 @SuppressWarnings("serial")
+@MappedSuperclass
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public abstract class BaseTO implements Serializable, Cloneable {
 
+    @Id
+    @GeneratedValue(strategy = AUTO)
+    @Column(name = "id", updatable = false, nullable = false, unique = true)
     private Long id;
 
     @Override

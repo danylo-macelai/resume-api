@@ -25,6 +25,7 @@ package br.com.resume;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 /**
  * <b>Description:</b> FIXME: Document this type <br>
@@ -34,6 +35,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @date: 6 de nov. de 2021
  * @version $
  */
+@ActiveProfiles("test")
 @SpringBootTest
 class ResumeApplicationUnitTests {
 

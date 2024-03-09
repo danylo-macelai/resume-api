@@ -112,6 +112,9 @@
 [![Workflow commands for GitHub Actions](https://img.shields.io/badge/Workflow%20commands%20for%20GitHub%20Actions-GitHub-A6A6B6)](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#environment-files)
 [![@commitlint/config--conventional v1.0](https://img.shields.io/badge/@commitlint/config--conventional-v1.0-A6B6C6)](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional)
 [![@commitlint/cli v1.0](https://img.shields.io/badge/@commitlint/cli-v1.0-A6C6D6)](https://www.npmjs.com/package/@commitlint/cli)
+[![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-Spring-95F6E5)](https://docs.spring.io/spring-data/jpa/reference/jpa.html)
+[![jpa.java-config](https://img.shields.io/badge/jpa.java-config-85F6D5)](https://docs.spring.io/spring-data/jpa/reference/repositories/create-instances.html#jpa.java-config)
+[![H2 Database](https://img.shields.io/badge/Database-H2-75F6C5)](https://www.h2database.com/html/installation.html)
 
 </div>
 </div>
