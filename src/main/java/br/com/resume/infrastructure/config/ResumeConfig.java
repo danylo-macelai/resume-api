@@ -23,6 +23,7 @@
  */
 package br.com.resume.infrastructure.config;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.concurrent.TimeUnit.MINUTES;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -31,6 +32,8 @@ import javax.sql.DataSource;
 import org.hibernate.boot.model.naming.PhysicalNamingStrategy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -111,6 +114,15 @@ public class ResumeConfig {
         final JpaTransactionManager txManager = new JpaTransactionManager();
         txManager.setEntityManagerFactory(entityManagerFactory);
         return txManager;
+    }
+
+    @Bean
+    @Primary
+    ResourceBundleMessageSource messageSource() {
+        final ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setDefaultEncoding(UTF_8.name());
+        messageSource.setBasenames("messages", "ValidationMessages");
+        return messageSource;
     }
 
 }
