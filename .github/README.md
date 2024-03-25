@@ -118,6 +118,8 @@
 [![Java Bean Validation](https://img.shields.io/badge/Java%20Bean%20Validation-Spring-65F6B5)](https://docs.spring.io/spring-framework/reference/core/validation/beanvalidation.html)
 [![Jakarta Bean Validation specification](https://img.shields.io/badge/Bean%20Validation%20specification-Jakarta-55F6A5)](https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html)
 [![Hibernate Validator](https://img.shields.io/badge/Validator-Hibernate-F5B695)](https://docs.jboss.org/hibernate/validator/9.0/reference/en-US/html_single/#validator-gettingstarted)
+[![Spring Error Handling](https://img.shields.io/badge/Error%20Handling-Spring-F5C685)](https://docs.spring.io/spring-boot/reference/web/servlet.html#web.servlet.spring-mvc.error-handling)
+[![H2 ErrorCode](https://img.shields.io/badge/ErrorCode-H2-F5D675)](https://www.h2database.com/javadoc/org/h2/api/ErrorCode.html)
 
 </div>
 </div>
