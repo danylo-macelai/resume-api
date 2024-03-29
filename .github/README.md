@@ -1,7 +1,7 @@
 <div align="justify">
     <div align="center">
         <picture>
-            <img alt="Resume Logo" src="./docs/resume-name.png" width="330px" height="100px" loading="lazy"/>
+            <img alt="Resume Logo" src="./docs/resume-name.png" width="330px" height="100px" loading="lazy" />
         </picture>
     </div>
     <hr>
@@ -12,7 +12,9 @@
         </em>
     </p>
     <p>
-        Este projeto tem como objetivo fornecer serviços na web que permitem aos usuários acessar e gerenciar suas informações profissionais e pessoais de forma simples. No centro do projeto está uma <strong>API RESTful</strong> robusta, projetada para facilitar a integração com diversas aplicações, melhorando a experiência do usuário e garantindo uma gestão de dados eficiente. A plataforma prioriza <strong>usabilidade</strong>, <strong>segurança</strong> e <strong>flexibilidade</strong>, sendo especialmente atraente para profissionais que desejam aumentar sua presença online. Ao consolidar informações essenciais, os usuários podem destacar suas habilidades e experiências de forma eficaz, aumentando sua visibilidade no mercado de trabalho. O projeto Resume oferece um conjunto abrangente de recursos para gerenciar <strong>Conquistas</strong>, <strong>Educação</strong>, <strong>Experiência</strong>, <strong>Hobbies</strong>, <strong>Perfil</strong>, <strong>Habilidades</strong> e dados de <strong>Usuários</strong>, permitindo que os usuários mantenham e acessem suas informações de maneira intuitiva. Ideal para quem busca aprimorar sua marca pessoal, o Resume garante uma experiência segura e personalizada, que simplifica a apresentação eficaz das habilidades.
+        Este projeto tem como objetivo fornecer serviços na web que permitem aos usuários acessar e gerenciar suas informações profissionais e pessoais de forma simples. No centro do projeto está uma <strong>API RESTful</strong> robusta, projetada para facilitar a integração com diversas aplicações, melhorando a experiência do usuário e garantindo uma gestão de dados eficiente. A plataforma prioriza <strong>usabilidade</strong>, <strong>segurança</strong> e <strong>flexibilidade</strong>, sendo
+        especialmente atraente para profissionais que desejam aumentar sua presença online. Ao consolidar informações essenciais, os usuários podem destacar suas habilidades e experiências de forma eficaz, aumentando sua visibilidade no mercado de trabalho. O projeto Resume oferece um conjunto abrangente de recursos para gerenciar <strong>Conquistas</strong>, <strong>Educação</strong>, <strong>Experiência</strong>, <strong>Hobbies</strong>, <strong>Perfil</strong>, <strong>Habilidades</strong> e
+        dados de <strong>Usuários</strong>, permitindo que os usuários mantenham e acessem suas informações de maneira intuitiva. Ideal para quem busca aprimorar sua marca pessoal, o Resume garante uma experiência segura e personalizada, que simplifica a apresentação eficaz das habilidades.
     </p>
     <h3>2. STATUS OF THIS PROJECT</h3>
     <p>
@@ -21,13 +23,14 @@
         </em>
     </p>
     <p>
-        Este projeto faz parte dos estudos realizados na especialização em Desenvolvimento Web e Mobile - Full Stack, onde foram abordados diversos recursos tecnológicos relevantes, conforme a ementa do curso. O projeto encontra-se atualmente em fase de aprimoramento contínuo, com as principais funcionalidades já operacionais. A equipe de desenvolvimento está focada em melhorias contínuas, voltadas para aprimorar a experiência do usuário por meio de recursos que aumentam a interatividade e a responsividade. As atualizações recentes trouxeram melhorias na velocidade de carregamento, responsividade e opções de personalização dinâmica. Estão planejados aprimoramentos futuros para introduzir mais elementos interativos, expandir a personalização e otimizar continuamente o desempenho para uma experiência de usuário fluida.
+        Este projeto faz parte dos estudos realizados na especialização em Desenvolvimento Web e Mobile - Full Stack, onde foram abordados diversos recursos tecnológicos relevantes, conforme a ementa do curso. O projeto encontra-se atualmente em fase de aprimoramento contínuo, com as principais funcionalidades já operacionais. A equipe de desenvolvimento está focada em melhorias contínuas, voltadas para aprimorar a experiência do usuário por meio de recursos que aumentam a interatividade e a responsividade. As atualizações recentes trouxeram melhorias na velocidade de carregamento, responsividade e opções de personalização dinâmica. Estão planejados aprimoramentos futuros para introduzir mais elementos interativos, expandir a personalização e otimizar
+        continuamente o desempenho para uma experiência de usuário fluida.
     </p>
     <h3>3. CLIENTES</h3>
     <div>
         <div>
             <picture>
-                <img align="left" src="./docs/resume-web.png" width="100px" height="100px" loading="lazy"/>
+                <img align="left" src="./docs/resume-web.png" width="100px" height="100px" loading="lazy" />
             </picture>
             <p>
                 Acesse <a href="https://resume.vercel.app/">resume.vercel.app</a>. Nossa aplicação web é uma interface moderna e intuitiva que permite aos usuários interagir com a <strong>API RESTful Resume</strong>. Com design responsivo, a plataforma oferece uma experiência fluida para gerenciar informações profissionais e pessoais. Confira o repositório em <a href="https://github.com/danylo-macelai/resume-web">Resume Web</a> e veja também as pessoas <a href="https://github.com/danylo-macelai/resume-web?tab=readme-ov-file#cases">que já aderiram</a> a essa transformação profissional!
@@ -35,7 +38,7 @@
         </div>
         <div>
             <picture>
-                <img align="left" src="./docs/resume-mobile.png" width="100px" height="100px" loading="lazy"/>
+                <img align="left" src="./docs/resume-mobile.png" width="100px" height="100px" loading="lazy" />
             </picture>
             <p>
                 O aplicativo mobile Resume proporciona uma experiência moderna e intuitiva, permitindo aos usuários interagir eficientemente com a <strong>API RESTful Resume</strong>. Disponível para download na <a href="#">Play Store</a>, o app tem design responsivo que facilita o gerenciamento de informações profissionais e pessoais. Confira o repositório em <a href="https://github.com/danylo-macelai/resume-mobile">Resume Mobile</a> e destaque suas habilidades de forma prática!
@@ -44,22 +47,68 @@
     </div>
     <h3>4. ARQUITETURA DO SISTEMA</h3>
     <p>
-        A arquitetura da <strong>API RESTful</strong> foi desenvolvida com <strong>Java</strong> e <strong>Spring Boot</strong>, combinando padrões robustos e boas práticas para garantir uma estrutura escalável e eficiente. O padrão <strong>MVC</strong> organizou a aplicação, onde controladores gerenciaram requisições HTTP, serviços encapsularam a lógica de negócios e entidades representaram os dados. O uso do padrão <strong>Repositório</strong> com <strong>Spring Data JPA</strong> simplificou o acesso ao banco de dados, permitindo operações CRUD e a transferência segura de dados. A implementação de <strong>HATEOAS</strong> facilitou a navegação entre os recursos, enquanto uma documentação clara e o versionamento da API asseguraram que os desenvolvedores pudessem utilizar a interface de forma eficaz. Medidas de segurança, como autenticação e tratamento de erros, também foram aplicadas para proteger os dados e melhorar a experiência do usuário. Outras práticas, como paginação e o uso correto de métodos HTTP, contribuíram para uma interação intuitiva e consistente. Juntas, essas abordagens mantiveram a API organizada, manutenível e de fácil consumo, promovendo tanto a clareza quanto a segurança.
+        A arquitetura da <strong>API RESTful</strong> foi desenvolvida com <strong>Java</strong> e <strong>Spring Boot</strong>, combinando padrões robustos e boas práticas para garantir uma estrutura escalável e eficiente. O padrão <strong>MVC</strong> organizou a aplicação, onde controladores gerenciaram requisições HTTP, serviços encapsularam a lógica de negócios e entidades representaram os dados. O uso do padrão <strong>Repositório</strong> com <strong>Spring Data JPA</strong> simplificou
+        o acesso ao banco de dados, permitindo operações CRUD e a transferência segura de dados. A implementação de <strong>HATEOAS</strong> facilitou a navegação entre os recursos, enquanto uma documentação clara e o versionamento da API asseguraram que os desenvolvedores pudessem utilizar a interface de forma eficaz. Medidas de segurança, como autenticação e tratamento de erros, também foram aplicadas para proteger os dados e melhorar a experiência do usuário. Outras práticas, como paginação
+        e o uso correto de métodos HTTP, contribuíram para uma interação intuitiva e consistente. Juntas, essas abordagens mantiveram a API organizada, manutenível e de fácil consumo, promovendo tanto a clareza quanto a segurança.
     </p>
     <div align="center">
         <picture>
-            <img alt="Diagrama de Classes" src="./docs/der.png" width="800px" height="460px" loading="lazy"/>
+            <img alt="Diagrama de Classes" src="./docs/der.png" width="800px" height="460px" loading="lazy" />
         </picture>
         <p><sup>Diagrama de Classes</sup></p>
     </div>
-    <h3>5. DOCUMENTOS</h3>
+    <h3>5. ESTRUTURA DE ARQUIVOS</h3>
+    <p>Em Breve!!!</p>
+    <h3>6. COMO EXECUTAR O PROJETO</h3>
+    <p>Este projeto utiliza o Java 17 e o Spring Boot 3.5.0, que conta com um servidor embutido (Tomcat) para facilitar a execução independente da aplicação. O banco de dados H2 está configurado para operar em modo de arquivo, eliminando a necessidade de instalação manual. O <strong>Maven Wrapper</strong> garante que todos os desenvolvedores usem a mesma versão do Maven, o que simplifica a configuração e assegura a consistência do ambiente de desenvolvimento.</p>
+    <blockquote>
+        <p>⚠️ <strong>Atenção:</strong></p>
+        <p>Os comandos sugeridos são compatíveis com Windows Terminal ou PowerShell. Caso utilize um terminal diferente, pode ser necessário realizar ajustes para adequá-los ao seu ambiente.</p>
+    </blockquote>
+    <p>Antes de prosseguir, verifique se o <strong>JDK 17</strong> está instalado em seu sistema, executando o comando:</p>
+    <pre><code><em>java -version</em></code></pre>
+    <p>Se o JDK 17 não estiver instalado, faça o download <a href="https://www.oracle.com/java/technologies/javase-jdk17-downloads.html" target="_blank">aqui</a> e siga as instruções da <a href="https://docs.oracle.com/en/java/javase/17/install/overview-installing-java-se-17.html" target="_blank">documentação oficial da Oracle</a>.</p>
+    <p>Para clonar o repositório, você também precisará do <strong>Git Bash</strong>. Verifique se ele está instalado com:</p>
+    <pre><code><em>git --version</em></code></pre>
+    <p>Caso o Git Bash não esteja instalado, faça o download <a href="https://gitforwindows.org/" target="_blank">aqui</a> e siga o guia de instalação oficial do <a href="https://gitforwindows.org/" target="_blank">Git for Windows</a>.</p>
+    <p>Para organizar o projeto, crie um diretório de trabalho em um local de sua preferência para armazenar o código-fonte. Um exemplo de comando para criar a pasta no terminal:</p>
+    <pre><code><em>mkdir C:\WORKSPACES\RESUME\RESUME-API</em></code></pre>    
+    <p>Em seguida, acesse o diretório criado com o comando:</p>
+    <pre><code><em>cd C:\WORKSPACES\RESUME\RESUME-API</em></code></pre>
+    <p>Depois, clone o repositório do projeto com o comando:</p>
+    <pre><code><em>git clone https://github.com/danylo-macelai/resume-api.git</em></code></pre>
+    <p>Após a clonagem, acesse a pasta do projeto com:</p>
+    <pre><code><em>cd .\resume-api\</em></code></pre>
+    <p>Para iniciar o projeto usando o Maven Wrapper (mvnw), execute o comando abaixo no diretório do projeto. Esse comando fará o download das dependências e iniciará o servidor Tomcat embutido:</p>
+   
+```bash
+$env:DATASOURCE_USERNAME="UResume"
+$env:DATASOURCE_PASSWORD="!Resume2024"
+./mvnw.cmd spring-boot:run
+```
+   <blockquote>
+        <p>⚠️ <strong>Atenção:</strong></p>
+        <p>Por padrão, se o banco de dados especificado na URL ainda não existir, um novo banco de dados (vazio) será criado automaticamente. O usuário que criou o banco de dados se tornará automaticamente o administrador deste banco de dados.</p>
+    </blockquote>
+    <h3>7. DESENVOLVIMENTO DE CÓDIGO-FONTE</h3>
+    <p>Se desejar analisar o código-fonte ou acompanhar a execução detalhadamente, consulte nosso <a href="./docs/ide.md">Guia de IDE</a>, que orienta a configuração do ambiente e a padronização do workspace. Também recomendamos a leitura do nosso guia de <a href="./CONTRIBUTING.md">contribuição</a> para conhecer o processo de desenvolvimento e as boas práticas adotadas no projeto.</p>
+    <h3>8. COMO TESTAR O PROJETO</h3>
+    <p>Em Breve!!!</p>
+    <h3>9. DOCUMENTOS</h3>
     <p>Explore os documentos essenciais do projeto através dos badges abaixo. Estes documentos são fundamentais para a colaboração eficaz.</p>
     <div align="center">
-        <p><a href="./CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Código%20de%20Conduta-🤍-007bff" alt="Código de Conduta" height="20px" loading="lazy" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./CONTRIBUTING.md"><img src="https://img.shields.io/badge/Contribuição-✍️-28a745" alt="Contribuição" height="20px" loading="lazy" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../LICENSE"><img src="https://img.shields.io/badge/Licença-⚖️-fd7e14" alt="Licença" height="20px" loading="lazy" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/Changelog-📜-6f42c1" alt="Changelog" height="20px" loading="lazy" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./SECURITY.md"><img src="https://img.shields.io/badge/Segurança-🛡️-dc3545" alt="Segurança" height="20px" loading="lazy" /></a></p>
+        <p>
+            <a href="./CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Código%20de%20Conduta-🤍-007bff" alt="Código de Conduta" height="20px" loading="lazy" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="./CONTRIBUTING.md"><img src="https://img.shields.io/badge/Contribuição-✍️-28a745" alt="Contribuição" height="20px" loading="lazy" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="../LICENSE"><img src="https://img.shields.io/badge/Licença-⚖️-fd7e14" alt="Licença" height="20px" loading="lazy" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/Changelog-📜-6f42c1" alt="Changelog" height="20px" loading="lazy" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="./SECURITY.md"><img src="https://img.shields.io/badge/Segurança-🛡️-dc3545" alt="Segurança" height="20px" loading="lazy" /></a>
+        </p>
     </div>
-    <p>O <strong>Código de Conduta</strong> estabelece um ambiente inclusivo e respeitoso. As orientações para <strong>Contribuição</strong> são especialmente projetadas para facilitar e otimizar a sua colaboração no projeto. Sugerimos o uso de branches para manter a estabilidade do código e garantir que o desenvolvimento seja fluido. Além disso, recomendamos seguir o padrão de <strong>Conventional Commits</strong> — uma abordagem que não apenas melhora a legibilidade do histórico de commits, mas também facilita a colaboração em equipe. Práticas como <strong>squashing</strong> e <strong>rebasing</strong> também são abordadas, ajudando a manter um histórico de código mais limpo e organizado. Ao contribuir, você estará ajudando a moldar a evolução deste projeto e terá a oportunidade de aprender e aplicar técnicas que são altamente valorizadas na indústria. Você encontrará também informações sobre a <strong>Licença</strong>, que define os direitos e deveres no uso do código, o <strong>Changelog</strong>, onde documentamos todas as alterações significativas, e nossa <strong>Política de Segurança</strong>, que prioriza a integridade e a proteção do projeto. Todos esses recursos são essenciais para garantir uma colaboração respeitosa e produtiva. Portanto, não deixe de acessá-los!
+    <p>
+        O <strong>Código de Conduta</strong> estabelece um ambiente inclusivo e respeitoso. As orientações para <strong>Contribuição</strong> são especialmente projetadas para facilitar e otimizar a sua colaboração no projeto. Sugerimos o uso de branches para manter a estabilidade do código e garantir que o desenvolvimento seja fluido. Além disso, recomendamos seguir o padrão de <strong>Conventional Commits</strong> — uma abordagem que não apenas melhora a legibilidade do histórico de commits, mas também facilita a colaboração em equipe. Práticas como <strong>squashing</strong> e <strong>rebasing</strong> também são abordadas, ajudando a manter um histórico de código mais limpo e organizado. Ao contribuir, você estará ajudando a moldar a evolução deste projeto e terá a oportunidade de aprender e aplicar técnicas que são altamente valorizadas na indústria. Você encontrará também informações sobre a <strong>Licença</strong>, que define os direitos e deveres no uso do código, o <strong>Changelog</strong>, onde documentamos todas as alterações significativas, e nossa <strong>Política de Segurança</strong>, que prioriza a integridade e a proteção do projeto. Todos esses recursos são essenciais para garantir uma colaboração respeitosa e produtiva. Portanto, não deixe de acessá-los!
     </p>
-    <h3>6. LINKS ÚTEIS/ FERRAMENTAS/ PLUGINS/ FRAMEWORKS</h3>
+    <h3>10. LINKS ÚTEIS/ FERRAMENTAS/ PLUGINS/ FRAMEWORKS</h3>
     <div align="left">
 
 [![GitHub - Community health file](https://img.shields.io/badge/Community%20Health%20File-GitHub-F5A6B6)](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)
