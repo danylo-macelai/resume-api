@@ -182,7 +182,7 @@ $env:DATASOURCE_PASSWORD="!Resume2024"
 [![Rule of three](https://img.shields.io/badge/Rule%20of%20three-Fowler-F5F655)](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming))
 [![Presentation Domain Data Layering](https://img.shields.io/badge/Presentation%20Domain%20Layering-Fowler-E5F645)](https://martinfowler.com/bliki/PresentationDomainDataLayering.html)
 [![Monolith First](https://img.shields.io/badge/Monolith%20First-Fowler-D5F635)](https://www.martinfowler.com/bliki/MonolithFirst.html)
-
+[![Maven MapStruct](https://img.shields.io/badge/MapStruct-Maven-C5F625)](https://mapstruct.org/documentation/installation/#apache-maven)
 
 </div>
 </div>
