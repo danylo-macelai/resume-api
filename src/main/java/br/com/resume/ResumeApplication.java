@@ -27,16 +27,33 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * <b>Description:</b> FIXME: Document this type <br>
- * <b>Project:</b> resume-api <br>
+ * Classe principal da aplicação Spring Boot para o projeto <b>resume-api</b>. Esta classe inicia a aplicação,
+ * configurando e carregando o contexto do Spring.
  *
- * @author Danylo
- * @date: 6 de nov. de 2021
- * @version $
+ * <p>
+ * A classe utiliza a anotação {@link SpringBootApplication}, que habilita o uso das configurações padrão do Spring
+ * Boot, incluindo escaneamento de componentes, configuração automática e inicialização da aplicação.
+ * </p>
+ *
+ * <p>
+ * <b>Projeto:</b> resume-api
+ * </p>
+ *
+ * @see SpringBootApplication
+ * @see SpringApplication
+ *
+ * @author MDanylo
+ * @version 1.0
+ * @since 6 de nov. de 2021
  */
 @SpringBootApplication
 public class ResumeApplication {
 
+    /**
+     * Método principal da aplicação que executa o Spring Boot.
+     *
+     * @param args argumentos de linha de comando passados durante a execução da aplicação
+     */
     public static void main(String[] args) {
         SpringApplication.run(ResumeApplication.class, args);
     }

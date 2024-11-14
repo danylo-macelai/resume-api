@@ -58,7 +58,17 @@
         <p><sup>Diagrama de Classes</sup></p>
     </div>
     <h3>5. ESTRUTURA DE ARQUIVOS</h3>
-    <p>Em Breve!!!</p>
+    <p>A escolha da organização por feature, em vez de por camada técnica, oferece vantagens significativas para a manutenção e evolução de sistemas complexos. Ao agrupar as classes de acordo com as funcionalidades do negócio, em vez de separá-las por preocupações técnicas, o código se torna mais fácil de entender e de gerenciar, já que todas as classes relacionadas a uma funcionalidade específica ficam localizadas em um único pacote. Isso melhora a visibilidade da lógica de negócios, facilitando a identificação e modificação de uma funcionalidade sem o risco de impactar outras partes do sistema de forma indesejada. Além disso, esse modelo permite uma evolução mais independente de diferentes funcionalidades, reduzindo a complexidade e aumentando a testabilidade, já que as dependências entre as funcionalidades são minimizadas. Embora haja o custo de duplicação de código, a abordagem "Package by Feature" evita o uso excessivo de abstrações complexas, tornando o código mais simples e alinhado às necessidades específicas de cada caso de uso.</p>
+    <blockquote>
+        <p>⚠️ <strong>Atenção:</strong></p>
+        <p>Para evitar duplicação de arquivos mantendo a organização por funcionalidades, aplique a <a href="https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)" target="_blank">Regra dos Três (Three strikes and you refactor")</a>, que sugere refatorar o código apenas quando ele for duplicado três vezes. No início, é aceitável manter algumas repetições, mas ao atingir a terceira instância, deve-se avaliar se o código pode ser extraído para uma classe ou método reutilizável, sem comprometer a clareza.</p>
+    </blockquote>
+    <div align="center">
+        <picture>
+            <img alt="Package by Feature" src="./docs/feature.png" loading="lazy" />
+        </picture>
+        <p><sup>Package by Feature</sup></p>
+    </div>
     <h3>6. COMO EXECUTAR O PROJETO</h3>
     <p>Este projeto utiliza o Java 17 e o Spring Boot 3.5.0, que conta com um servidor embutido (Tomcat) para facilitar a execução independente da aplicação. O banco de dados H2 está configurado para operar em modo de arquivo, eliminando a necessidade de instalação manual. O <strong>Maven Wrapper</strong> garante que todos os desenvolvedores usem a mesma versão do Maven, o que simplifica a configuração e assegura a consistência do ambiente de desenvolvimento.</p>
     <blockquote>
@@ -169,6 +179,10 @@ $env:DATASOURCE_PASSWORD="!Resume2024"
 [![Hibernate Validator](https://img.shields.io/badge/Validator-Hibernate-F5B695)](https://docs.jboss.org/hibernate/validator/9.0/reference/en-US/html_single/#validator-gettingstarted)
 [![Spring Error Handling](https://img.shields.io/badge/Error%20Handling-Spring-F5C685)](https://docs.spring.io/spring-boot/reference/web/servlet.html#web.servlet.spring-mvc.error-handling)
 [![H2 ErrorCode](https://img.shields.io/badge/ErrorCode-H2-F5D675)](https://www.h2database.com/javadoc/org/h2/api/ErrorCode.html)
+[![Rule of three](https://img.shields.io/badge/Rule%20of%20three-Fowler-F5F655)](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming))
+[![Presentation Domain Data Layering](https://img.shields.io/badge/Presentation%20Domain%20Layering-Fowler-E5F645)](https://martinfowler.com/bliki/PresentationDomainDataLayering.html)
+[![Monolith First](https://img.shields.io/badge/Monolith%20First-Fowler-D5F635)](https://www.martinfowler.com/bliki/MonolithFirst.html)
+
 
 </div>
 </div>

@@ -28,17 +28,42 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 /**
- * <b>Description:</b> FIXME: Document this type <br>
- * <b>Project:</b> resume-api <br>
+ * Classe de teste unitário para a aplicação {@link ResumeApplication}. Este teste tem como objetivo verificar se o
+ * contexto da aplicação Spring pode ser carregado corretamente em um ambiente de testes unitários.
  *
- * @author Danylo
- * @date: 6 de nov. de 2021
- * @version $
+ * <p>
+ * A anotação {@link SpringBootTest} indica que o teste deve carregar o contexto completo da aplicação Spring para
+ * validar sua configuração e inicialização. A anotação {@link ActiveProfiles} ativa o perfil de testes ("test"), o que
+ * pode incluir configurações específicas para o ambiente de testes, como bancos de dados em memória, mocks, entre
+ * outros.
+ * </p>
+ *
+ * <p>
+ * O método {@link #contextLoads()} não realiza nenhuma validação explícita, mas serve para garantir que o contexto da
+ * aplicação seja carregado sem falhas. Caso o contexto não consiga ser carregado, o teste falhará automaticamente.
+ * </p>
+ *
+ * <p>
+ * <b>Projeto:</b> resume-api
+ * </p>
+ *
+ * @author MDanylo
+ * @version 1.0
+ * @since 6 de nov. de 2021
  */
 @ActiveProfiles("test")
 @SpringBootTest
 class ResumeApplicationUnitTests {
 
+    /**
+     * Teste que verifica se o contexto da aplicação Spring é carregado corretamente.
+     *
+     * <p>
+     * Este método de teste não executa ações explícitas ou verificações, mas é utilizado para garantir que o contexto
+     * da aplicação seja inicializado corretamente. Se houver falhas de configuração ou problemas de inicialização do
+     * contexto, o Spring lançará exceções e o teste será automaticamente marcado como falho.
+     * </p>
+     */
     @Test
     void contextLoads() {
     }

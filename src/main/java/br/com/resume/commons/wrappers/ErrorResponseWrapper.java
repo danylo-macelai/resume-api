@@ -38,12 +38,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * <b>Description:</b> FIXME: Document this type <br>
- * <b>Project:</b> resume-api <br>
+ * Classe que representa a estrutura de uma resposta de erro para ser enviada ao cliente em caso de falhas ou exceções
+ * durante o processamento de uma requisição. Ela contém informações como o timestamp do erro, o código de status HTTP,
+ * a razão do erro e a lista de erros detalhados.
  *
- * @author Danylo
- * @date: 12 de mar. de 2024
- * @version $
+ * <p>
+ * A classe utiliza {@link JsonFormat} para formatar a data e hora do erro no padrão especificado. Ela é usada para
+ * encapsular a resposta de erro e fornecer informações detalhadas para o cliente.
+ * </p>
+ *
+ * <p>
+ * <b>Projeto:</b> resume-api
+ * </p>
+ *
+ * @author MDanylo
+ * @version 1.0
+ * @since 12 de mar. de 2024
  */
 @SuppressWarnings("serial")
 @Data
@@ -51,12 +61,34 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ErrorResponseWrapper implements Serializable {
 
+    /**
+     * O timestamp do erro, indicando a data e hora exatas em que o erro ocorreu. O formato é "dd-MM-yyyy hh:mm:ss".
+     */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime timestamp;
-    private int           status;
-    private String        reasonPhrase;
-    private List<String>  errors;
 
+    /**
+     * O código de status HTTP que representa o tipo de erro ocorrido.
+     */
+    private int status;
+
+    /**
+     * A razão associada ao código de status HTTP, descrevendo o erro de maneira mais legível.
+     */
+    private String reasonPhrase;
+
+    /**
+     * Lista de erros detalhados, podendo ser mensagens ou descrições adicionais relacionadas ao erro.
+     */
+    private List<String> errors;
+
+    /**
+     * Construtor para criar uma instância da resposta de erro, inicializando todos os campos.
+     *
+     * @param timestamp o timestamp do erro
+     * @param status o código de status HTTP associado ao erro
+     * @param errors lista de erros detalhados
+     */
     public ErrorResponseWrapper(LocalDateTime timestamp, HttpStatusCode status, List<String> errors) {
         this.timestamp = timestamp;
         this.status = status.value();
@@ -64,6 +96,13 @@ public class ErrorResponseWrapper implements Serializable {
         this.errors = errors;
     }
 
+    /**
+     * Construtor que inicializa a resposta de erro com um único erro.
+     *
+     * @param timestamp o timestamp do erro
+     * @param status o código de status HTTP associado ao erro
+     * @param error uma mensagem de erro
+     */
     public ErrorResponseWrapper(LocalDateTime timestamp, HttpStatusCode status, String error) {
         this(timestamp, status, Arrays.asList(error));
     }

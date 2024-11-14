@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package br.com.resume.infrastructure.config;
+package br.com.resume.infrastructure.configs;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.concurrent.TimeUnit.MINUTES;
@@ -46,17 +46,45 @@ import com.zaxxer.hikari.HikariDataSource;
 import jakarta.persistence.EntityManagerFactory;
 
 /**
- * <b>Description:</b> FIXME: Document this type <br>
- * <b>Project:</b> resume-api <br>
+ * Classe de configuração da aplicação responsável por habilitar o gerenciamento de transações e configurar a fonte de
+ * dados, o gerenciamento de transações, a persistência com JPA e a internacionalização de mensagens.
  *
- * @author Danylo
- * @date: 12 de mar. de 2024
- * @version $
+ * A anotação {@link Configuration} marca a classe como uma fonte de configuração Spring, enquanto
+ * {@link EnableTransactionManagement} ativa o suporte a transações, permitindo que o Spring gerencie automaticamente as
+ * transações nos métodos anotados com {@link org.springframework.transaction.annotation.Transactional}.
+ *
+ * <p>
+ * Esta configuração é essencial para garantir que as operações de banco de dados sejam realizadas de forma
+ * transacional, com controle automático de commits e rollbacks em caso de exceções ou falhas. Além disso, configura-se
+ * a fonte de dados usando o HikariCP como pool de conexões e a persistência usando Hibernate, com a definição das
+ * propriedades relacionadas.
+ * </p>
+ *
+ * <p>
+ * Também é configurado um {@link ResourceBundleMessageSource} para possibilitar a internacionalização das mensagens da
+ * aplicação.
+ * </p>
+ *
+ * <p>
+ * <b>Projeto:</b> resume-api
+ * </p>
+ *
+ * @see Configuration
+ * @see EnableTransactionManagement
+ * @see HibernateJpaVendorAdapter
+ * @see HikariDataSource
+ * @see ResourceBundleMessageSource
+ * @see org.springframework.transaction.annotation.Transactional
+ *
+ * @author MDanylo
+ * @version 1.0
+ * @since 12 de mar. de 2024
  */
 @Configuration
 @EnableTransactionManagement
 public class ResumeConfig {
 
+    // Constantes para propriedades de configuração do datasource e Hibernate
     private static final String DATASOURCE_USERNAME   = "spring.datasource.username";
     private static final String DATASOURCE_PASSWORD   = "spring.datasource.password";
     private static final String DATASOURCE_URL        = "spring.datasource.url";
@@ -68,15 +96,22 @@ public class ResumeConfig {
     private static final String HIBERNATE_SHOW_SQL   = "spring.jpa.properties.hibernate.show_sql";
     private static final String HIBERNATE_FORMAT_SQL = "spring.jpa.properties.hibernate.format_sql";
 
+    /**
+     * Configura a fonte de dados (DataSource) para a aplicação utilizando HikariCP. Define as propriedades necessárias
+     * para a conexão com o banco de dados, incluindo URL, driver, credenciais e parâmetros do pool de conexões.
+     *
+     * @param env o ambiente da aplicação para acessar as propriedades de configuração
+     * @return um {@link DataSource} configurado para a aplicação
+     */
     @Bean
     DataSource dataSource(Environment env) {
-
         final HikariDataSource dataSource = new HikariDataSource();
         dataSource.setUsername(env.getProperty(DATASOURCE_USERNAME));
         dataSource.setPassword(env.getProperty(DATASOURCE_PASSWORD));
         dataSource.setJdbcUrl(env.getProperty(DATASOURCE_URL));
         dataSource.setDriverClassName(env.getProperty(DATASOURCE_DRIVER));
 
+        // Configuração do pool de conexões
         dataSource.setPoolName("StandardsPool");
         dataSource.setConnectionTestQuery(env.getProperty(DATASOURCE_TEST_QUERY));
         dataSource.setConnectionTimeout(SECONDS.toMillis(30));
@@ -89,6 +124,14 @@ public class ResumeConfig {
         return dataSource;
     }
 
+    /**
+     * Configura o {@link LocalContainerEntityManagerFactoryBean} para integração com o JPA e Hibernate. Define o
+     * adaptador do Hibernate e as propriedades específicas para o banco de dados e a persistência.
+     *
+     * @param dataSource a fonte de dados configurada para a aplicação
+     * @param env o ambiente da aplicação para acessar as propriedades de configuração
+     * @return uma instância configurada de {@link LocalContainerEntityManagerFactoryBean}
+     */
     @Bean
     LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Environment env) {
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -98,9 +141,10 @@ public class ResumeConfig {
 
         final LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("br.com.resume");
+        factory.setPackagesToScan("br.com.resume"); // Pacote de entidades JPA
         factory.setDataSource(dataSource);
 
+        // Definindo propriedades adicionais de Hibernate
         factory.getJpaPropertyMap().put("hibernate.hbm2ddl.auto", env.getProperty(HIBERNATE_HBM2DDL));
         factory.getJpaPropertyMap().put("hibernate.format_sql", env.getProperty(HIBERNATE_FORMAT_SQL));
         factory.getJpaPropertyMap().put("hibernate.ejb.naming_strategy", PhysicalNamingStrategy.class.getName());
@@ -109,6 +153,13 @@ public class ResumeConfig {
         return factory;
     }
 
+    /**
+     * Configura o {@link PlatformTransactionManager} para gerenciar as transações JPA. Utiliza o
+     * {@link JpaTransactionManager} para controlar o ciclo de vida das transações.
+     *
+     * @param entityManagerFactory a fábrica de entidades para configurar o gerenciador de transações
+     * @return um {@link PlatformTransactionManager} configurado
+     */
     @Bean
     PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         final JpaTransactionManager txManager = new JpaTransactionManager();
@@ -116,12 +167,18 @@ public class ResumeConfig {
         return txManager;
     }
 
+    /**
+     * Configura o {@link ResourceBundleMessageSource} para a internacionalização das mensagens da aplicação. Utiliza os
+     * arquivos de propriedades "messages" e "ValidationMessages" para fornecer suporte a múltiplos idiomas.
+     *
+     * @return um {@link ResourceBundleMessageSource} configurado
+     */
     @Bean
     @Primary
     ResourceBundleMessageSource messageSource() {
         final ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setDefaultEncoding(UTF_8.name());
-        messageSource.setBasenames("messages", "ValidationMessages");
+        messageSource.setBasenames("messages", "ValidationMessages"); // Definindo os arquivos de mensagens
         return messageSource;
     }
 

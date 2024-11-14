@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package br.com.resume.infrastructure.config;
+package br.com.resume.infrastructure.configs;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
@@ -48,16 +48,30 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import br.com.resume.commons.wrappers.ErrorResponseWrapper;
-import br.com.resume.infrastructure.exception.ResumeException;
+import br.com.resume.infrastructure.exceptions.ResumeException;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * <b>Description:</b> FIXME: Document this type <br>
- * <b>Project:</b> resume-api <br>
+ * Classe de configuração global para tratamento de exceções em toda a aplicação. Esta classe estende
+ * {@link ResponseEntityExceptionHandler} e é anotada com {@link ControllerAdvice}, permitindo o gerenciamento
+ * centralizado de exceções nas controladoras da aplicação.
  *
- * @author Danylo
- * @date: 12 de mar. de 2024
- * @version $
+ * <p>
+ * Através do uso de `@ControllerAdvice`, esta classe captura exceções lançadas nas controladoras e permite retornar
+ * respostas de erro personalizadas para o cliente, utilizando o formato e o conteúdo adequados. Também inclui logs para
+ * monitorar erros e facilitar o rastreamento de problemas.
+ * </p>
+ *
+ * <p>
+ * <b>Projeto:</b> resume-api
+ * </p>
+ *
+ * @see ResponseEntityExceptionHandler
+ * @see ControllerAdvice
+ *
+ * @author MDanylo
+ * @version 1.0
+ * @since 12 de mar. de 2024
  */
 @Slf4j
 @ControllerAdvice
@@ -86,9 +100,10 @@ public class ExceptionConfig extends ResponseEntityExceptionHandler {
      */
     @ExceptionHandler(value = { ResumeException.class })
     protected ResponseEntity<Object> handleResumeException(ResumeException ex, WebRequest request) {
-        final String error = getMessage(ex.getKey(), ex.getArgs());
-        log.error("Exceção personalizada (ResumeException) capturada: {}", error, ex);
-        final ErrorResponseWrapper body = new ErrorResponseWrapper(LocalDateTime.now(), ex.getStatusCode(), error);
+        final List<String> erros = ex.getMensagens(mensagens);
+        log.warn("Exceção a ser lançada de problemas conhecidos e tratados pela a aplicação: {}",
+                String.join(", ", erros));
+        final ErrorResponseWrapper body = new ErrorResponseWrapper(LocalDateTime.now(), ex.getStatusCode(), erros);
         return handleExceptionInternal(ex, body, new HttpHeaders(), ex.getStatusCode(), request);
     }
 
@@ -216,18 +231,7 @@ public class ExceptionConfig extends ResponseEntityExceptionHandler {
      * @param args Os argumentos para formatar a mensagem.
      * @return A mensagem formatada.
      */
-    private String getMessage(final String key, final String[] args) {
-        return mensagens.getMessage(key, args, key, LocaleContextHolder.getLocale());
-    }
-
-    /**
-     * Recupera a mensagem de erro baseada na chave e argumentos fornecidos.
-     *
-     * @param key A chave da mensagem.
-     * @param args Os argumentos para formatar a mensagem.
-     * @return A mensagem formatada.
-     */
-    private String getMessage(final String key, final Object... args) {
+    private String getMessage(final String key, final String... args) {
         return mensagens.getMessage(key, args, key, LocaleContextHolder.getLocale());
     }
 
